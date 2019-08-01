@@ -2,6 +2,7 @@ version: '2'
 services:
   s-postgres:
     image: postgres:9.4-alpine
+    build: postgres/
     hostname: host-postgres
     environment:
       - POSTGRES_USER=postgres
@@ -12,8 +13,8 @@ services:
   s-flyway:
     image: dhoer/flyway:alpine
     build: flyway/
-    entrypoint: /wait-for-it.sh s-postgres 5432 --timeout=0 --strict
     command: -url=jdbc:postgresql://s-postgres:5432/postgres -baselineOnMigrate=true -schemas=public -user=postgres -password=postgres migrate
+    entrypoint: /wait-for-it.sh s-postgres 5432 --timeout=0 --strict
     networks:
        - network-docker
     depends_on:
