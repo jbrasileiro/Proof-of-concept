@@ -5,8 +5,8 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
 >
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>jbrasileiro</groupId>
-	<artifactId>introducing-example</artifactId>
+	<groupId>jbrasileiro-PoC</groupId>
+	<artifactId>Proof-of-concept</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>pom</packaging>
 	<build>
@@ -23,6 +23,6 @@
 		</plugins>
 	</build>
 	<modules>
-		<module>introducing-example-docker-flyway</module>
+		<module>PoC-docker-flyway</module>
 	</modules>
 </project>
