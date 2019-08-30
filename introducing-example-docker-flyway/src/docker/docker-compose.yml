@@ -18,6 +18,9 @@ services:
        - network-docker
     depends_on:
       - s-postgres
+    deploy:
+      restart_policy:
+        condition: on-failure
 networks:
   network-docker:
     driver: bridge
