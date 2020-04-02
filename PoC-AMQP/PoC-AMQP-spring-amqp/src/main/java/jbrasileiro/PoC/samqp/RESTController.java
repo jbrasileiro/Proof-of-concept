@@ -1,0 +1,16 @@
+package jbrasileiro.PoC.samqp;
+
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+public class RESTController {
+
+	@RequestMapping(
+		method = RequestMethod.GET,
+		path = "/example")
+	public String greeting() {
+		return "";
+	}
+}
