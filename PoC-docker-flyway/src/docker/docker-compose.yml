@@ -9,11 +9,16 @@ services:
       - POSTGRES_DB=postgres
     networks:
        - network-docker
+       
   s-flyway:
     image: dhoer/flyway:alpine
     build: flyway/
-    entrypoint: /wait-for-it.sh s-postgres 5432 --timeout=0 --strict
-    command: -url=jdbc:postgresql://s-postgres:5432/postgres -baselineOnMigrate=true -schemas=public -user=postgres -password=postgres migrate
+    entrypoint: /wait-for-start.sh s-postgres 5432
+    command: >
+      /bin/bash -c "
+        nc -z s-postgres 5432 &&
+        echo Connected to DB and started!
+      "
     networks:
        - network-docker
     depends_on:
